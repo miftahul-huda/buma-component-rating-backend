@@ -1,3 +1,5 @@
+**
+
 ## BUMA Component Rating Backend
 
 
@@ -38,13 +40,19 @@ To run locally, just type in the console in the root folder of this application:
 
 **Deploy in App Engine**
 
-To deploy the application in app engine:
+To deploy to App Engine first you have to login first to GCP using command:
+
+    gcloud auth login
+
+Make sure you logged in using username who can access the GCP environment.
+
+After login, deploy the application in app engine:
 
     gcloud app deploy
 
 Once done, open the link that displayed in the output of the deploy command.
 
-To look for the uploaded mo, add "/web/uploadedmolist" in the link url.
+To look for the uploaded mo, add "*/web/uploadedmolist*" in the link url.
 
 
 
