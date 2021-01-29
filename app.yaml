@@ -1,0 +1,3 @@
+service: component-rating
+runtime: nodejs12
+env: standard

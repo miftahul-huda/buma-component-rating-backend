@@ -1,0 +1,7 @@
+[
+    { "path" :  "/mo", "router"  : "./routes/mo" },
+    { "path" :  "/uploadedmo", "router"  : "./routes/uploadedmo" },
+    { "path" :  "/modelcomponent", "router"  : "./routes/modelcomponent" },
+    { "path" :  "/web", "router"  : "./routes/web" }
+
+]

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<%- include ("./headerscript.html") -%>
+</head>
+<body>
+<%- include ("./header.html") -%>
+
+    <div class="card-body">
+
+        <table id="datatable"></table>
+
+    </div>
+
+<%- include ("./footer.html") -%>
+</body>
+
+<script>
+$(document).ready(function(){
+    loadUploadedMO();
+
+})
+
+var table = null;
+function loadUploadedMO()
+{
+    var url = "/uploadedmo";
+
+    $.get(url, function(response){
+        if(response.success)
+        {
+            var uploadedMos = response.payload;
+            console.log(uploadedMos)
+
+            for(var i=0; i < uploadedMos.length; i++)
+            {
+                //uploadedMos[i].delete = "<div style='cursor: pointer' onclick='deleteApp(" + uploadedMos[i].id + ")'>x</div>"
+            }
+
+            if(table != null)
+                table.destroy();
+
+            table = $("#datatable").DataTable({
+                data: uploadedMos,
+                columns: [
+                    { title: "id", data:"id"},
+                    { title: "MO Number", data:"mo_number"},
+                    { title: "Location", data: "location"},
+                    { title: "Unit Code", data: "unit_code"},
+                    { title: "Model", data: "model"},
+                    { title: "Component", data: "component"},
+                    { title: "Date", data: "date"},
+                    { title: "Rate.IR", data: "rating_ir"},
+                    { title: "IR Rating values", data: "rating_ir_values"},
+                    { title: "Rate", data: "rating"},
+                    { title: "Processed by", data: "processed_by"},
+                    { title: "Filename", data: "filename"}
+                   
+                ],
+                "columnDefs": [
+                    {
+                        "targets": [ 0 ],
+                        "visible": false,
+                        "searchable": false
+                    }
+                ],
+                "order": [[ 0, "desc" ]]
+            })
+        }
+        else{
+            alert(response.error);
+        }
+    });    
+}
+
+
+function deleteApp(i)
+{
+
+    var url = "/uploadedmo/delete/" + i;
+    $.get(url,  function(response){
+        if(response.success)
+        {
+            loadApp();
+        }
+        else{
+            alert(response.error);
+        }
+    });
+}
+
+</script>
+</html>
+
+
