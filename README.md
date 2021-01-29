@@ -1,5 +1,3 @@
-**
-
 ## BUMA Component Rating Backend
 
 
