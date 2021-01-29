@@ -1,3 +1,5 @@
+*BUMA component rating backend*
+
 This is the backend for BUMA component rating using GCP Auto ML vision model. It runs on Node JS Express and PostgreSQL as database, and Sequelize ORM tool to connect to PostgreSQL.
 
 **Prerequisite**
